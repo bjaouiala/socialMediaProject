@@ -1,4 +1,3 @@
-const jwt = require('jsonwebtoken')
 const query = require('../db/queries')
 require('dotenv').config();
 module.exports = {

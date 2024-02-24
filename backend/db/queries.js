@@ -9,5 +9,9 @@ module.exports = {
     },
     getUserById(id){
         return knex('users').where({id});
+    },
+    login(email,password){
+        return knex('users').where({email:email,password:password})
+
     }
 }

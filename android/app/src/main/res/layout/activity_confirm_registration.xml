@@ -6,14 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ConfirmRegister">
 
+    <include
+        layout="@layout/tool_bar"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <Button
         android:id="@+id/button22"
         android:layout_width="347dp"
         android:layout_height="57dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
-        android:text="Enregistrer"
         android:background="@drawable/button"
+        android:text="Enregistrer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -22,7 +27,9 @@
         android:layout_width="404dp"
         android:layout_height="82dp"
         android:layout_marginTop="4dp"
-        android:text="vous "
+        android:textSize="20dp"
+        android:paddingStart="15dp"
+        android:text="Vous allez recevoir un code de confirmation sur votre adresse e-mail afin de valider votre compte."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,15 +49,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="347dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="40dp"
-        android:text="Plus tard"
-        android:background="@drawable/corner"
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="397dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="36dp"
+        android:text=""
+        android:paddingStart="20dp"
+        android:textColor="@color/red"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintHorizontal_bias="0.386"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button22" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

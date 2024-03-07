@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -18,25 +19,33 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
-    private EditText email;
+public class LoginActivity extends AppCompatActivity {
+     private EditText email;
     private EditText password;
-    private TextView success;
     private Button button2;
+    private Button creer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         email = findViewById(R.id.editTextText);
         password = findViewById(R.id.editTextTextPassword);
-        success = findViewById(R.id.textView2);
         button2 = findViewById(R.id.button);
+        creer = findViewById(R.id.button23);
 
         button2.setOnClickListener(login->loginUser());
+        creer.setOnClickListener(creer-> creerUnCompte());
 
     }
-    private void loginUser(){
+
+    public void creerUnCompte(){
+        Intent i  =new Intent(this, NomPrenomActivity.class);
+        startActivity(i);
+
+    }
+
+    public void loginUser(){
         String username = email.getText().toString();
         String pass = password.getText().toString();
 
@@ -47,11 +56,10 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     String JWT = response.body();
-                    Log.d("jwt", JWT);
-                    Toast.makeText(MainActivity.this, "Loged in", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Loged in", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -59,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
                 Log.e("onFailure", "Network error", t);
-                Toast.makeText(MainActivity.this, "Network error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Network error", Toast.LENGTH_SHORT).show();
 
             }
         });

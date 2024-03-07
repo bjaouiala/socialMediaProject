@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmailActivity"
+    android:background="@color/PastelGreen">
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/tool_bar" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="383dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="12dp"
+        android:paddingStart="15dp"
+        android:text="@string/email"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="350dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:paddingStart="10dp"
+        android:background="@drawable/round"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/emailR"
+        android:layout_width="350dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:paddingStart="10dp"
+        android:background="@drawable/round"
+        android:hint="Email de Recuperation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <Button
+        android:id="@+id/Ebutton"
+        android:layout_width="344dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/button"
+        android:text="Suivant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailR" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

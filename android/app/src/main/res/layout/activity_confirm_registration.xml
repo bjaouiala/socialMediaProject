@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmRegister">
+
+    <Button
+        android:id="@+id/button22"
+        android:layout_width="347dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="32dp"
+        android:text="Enregistrer"
+        android:background="@drawable/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="404dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="4dp"
+        android:text="vous "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="414dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="76dp"
+        android:paddingStart="15dp"
+        android:text="Enregistrer vos informations de connexion"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="347dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="40dp"
+        android:text="Plus tard"
+        android:background="@drawable/corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button22" />
+</androidx.constraintlayout.widget.ConstraintLayout>

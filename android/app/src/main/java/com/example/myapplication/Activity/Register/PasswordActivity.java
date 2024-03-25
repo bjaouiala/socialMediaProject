@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Activity.Register;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.myapplication.R;
 
 public class PasswordActivity extends AppCompatActivity {
     private Toolbar toolbar;

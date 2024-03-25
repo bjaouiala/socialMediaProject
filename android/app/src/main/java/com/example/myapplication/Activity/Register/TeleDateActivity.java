@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Activity.Register;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+
+import com.example.myapplication.R;
 
 import java.util.Calendar;
 

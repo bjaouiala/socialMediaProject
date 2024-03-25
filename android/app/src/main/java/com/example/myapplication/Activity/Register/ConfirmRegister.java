@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Activity.Register;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -13,8 +13,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.R;
 import com.example.myapplication.config.RetrofitClient;
-import com.example.myapplication.service.RegisterService;
+import com.example.myapplication.services.UserService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -66,8 +67,8 @@ public class ConfirmRegister extends AppCompatActivity {
         String genre = i.getStringExtra("genre");
         String password = i.getStringExtra("password");
 
-        RegisterService registerService = RetrofitClient.getRetrofitInsantce().create(RegisterService.class);
-        Call<String> call = registerService.register(Firstname,Lastname,email,emailRecuperation,date,genre,password,phoneNumber);
+        UserService userService = RetrofitClient.getRetrofitInsantce().create(UserService.class);
+        Call<String> call = userService.register(Firstname,Lastname,email,emailRecuperation,date,genre,password,phoneNumber);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {

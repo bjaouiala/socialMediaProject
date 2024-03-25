@@ -1,10 +1,11 @@
-package com.example.myapplication;
+package com.example.myapplication.Activity.ResetPassword;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -13,8 +14,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.myapplication.Model.User;
+import com.example.myapplication.R;
 import com.example.myapplication.config.RetrofitClient;
-import com.example.myapplication.service.GetCodeConfirmation;
+import com.example.myapplication.services.AuthService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,14 +45,21 @@ public class Confirmation_Code extends AppCompatActivity {
 
     public void verifieCode(){
         String codeconfirmation = code.getText().toString();
-        GetCodeConfirmation getCodeConfirmation = RetrofitClient.getRetrofitInsantce().create(GetCodeConfirmation.class);
-        Call<User> call = getCodeConfirmation.compareCode(codeconfirmation);
+        AuthService authService = RetrofitClient.getRetrofitInsantce().create(AuthService.class);
+        Call<User> call = authService.getCodeConfirmation(codeconfirmation);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful() && response.body()!=null){
-                    Toast.makeText(Confirmation_Code.this, "success", Toast.LENGTH_SHORT).show();
-                }else Toast.makeText(Confirmation_Code.this, "failure", Toast.LENGTH_SHORT).show();
+                    User user = response.body();
+                    if (user.getCodeConfirmation() != null && user.getCodeConfirmation().equals(codeconfirmation)){
+                        Intent intent = new Intent(Confirmation_Code.this, SetPassword.class);
+                        intent.putExtra("CodeConfirmation",codeconfirmation);
+                        startActivity(intent);
+                    }else {
+                        code.setError("code incorrect");
+                    }
+                }else Toast.makeText(Confirmation_Code.this, "Code incorrect", Toast.LENGTH_SHORT).show();
 
             }
 

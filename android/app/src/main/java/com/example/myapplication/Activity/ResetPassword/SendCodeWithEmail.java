@@ -13,15 +13,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myapplication.Model.User;
 import com.example.myapplication.R;
 import com.example.myapplication.config.RetrofitClient;
-import com.example.myapplication.service.SetCodeConfirmationService;
+import com.example.myapplication.services.UserService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ResetPassword extends AppCompatActivity {
+public class SendCodeWithEmail extends AppCompatActivity {
     private Toolbar toolbar;
     private EditText email;
     private EditText emailRecuperation;
@@ -56,8 +57,8 @@ public class ResetPassword extends AppCompatActivity {
     public void resetPassword(){
         String eemail = email.getText().toString();
         String emailRecu = emailRecuperation.getText().toString();
-        SetCodeConfirmationService service = RetrofitClient.getRetrofitInsantce().create(SetCodeConfirmationService.class);
-        Call<String> call = service.sendCode(eemail,emailRecu);
+        UserService userService = RetrofitClient.getRetrofitInsantce().create(UserService.class);
+        Call<User> call = userService.sendCodeWithEmail(eemail,emailRecu);
         if (eemail.isEmpty()){
             email.setError("entrer votre email");
             return;
@@ -66,19 +67,25 @@ public class ResetPassword extends AppCompatActivity {
             emailRecuperation.setError("entrer votre email de recuperation");
             return;
         }
-        call.enqueue(new Callback<String>() {
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
+            public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful() && response.body() != null){
-                    Intent i = new Intent(ResetPassword.this,Confirmation_Code.class);
-                    startActivity(i);
+                    User user = response.body();
+                    if (user.getEmail() != null && user.getEmailRecuperation() != null
+                    && user.getEmailRecuperation().equals(emailRecu) && user.getEmail().equals(eemail)){
+                        Intent i = new Intent(SendCodeWithEmail.this,Confirmation_Code.class);
+                        startActivity(i);
+                    }else {
+                        Toast.makeText(SendCodeWithEmail.this, "Email incorrect", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
                 Log.e("onFailure", "Network error", t);
-                Toast.makeText(ResetPassword.this, "Network error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SendCodeWithEmail.this, "Network error", Toast.LENGTH_SHORT).show();
 
             }
         });

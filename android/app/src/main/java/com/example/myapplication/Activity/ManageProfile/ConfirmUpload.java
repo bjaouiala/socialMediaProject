@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Activity.ManageProfile;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.documentfile.provider.DocumentFile;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -17,14 +16,19 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.myapplication.Model.User;
+import com.example.myapplication.R;
 import com.example.myapplication.config.RetrofitClient;
-import com.example.myapplication.services.ManageProfileService;
+import com.example.myapplication.services.PostService;
+import com.example.myapplication.services.UserService;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -39,6 +43,7 @@ public class ConfirmUpload extends AppCompatActivity {
     private Toolbar toolbar;
     private ImageView imageView;
     private Button button;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,7 @@ public class ConfirmUpload extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar2);
         imageView = findViewById(R.id.imageView);
         button = findViewById(R.id.button3);
+        editText = findViewById(R.id.editTextTextMultiLine);
         setSupportActionBar(toolbar);
         Intent i = getIntent();
         Uri uri = i.getData();
@@ -69,17 +75,27 @@ public class ConfirmUpload extends AppCompatActivity {
         }
     }
 
+    public String createNewDate(){
+        Calendar calendar = Calendar.getInstance();
+        Date currentDate = calendar.getTime();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(currentDate);
+    }
+
     public void upploadImage() {
+        String descriptin = editText.getText().toString();
+        String dateString = createNewDate();
         Intent i = getIntent();
         long id = i.getLongExtra("id", 0);
+        String picture = i.getStringExtra("picture");
         Uri uri = i.getData();
+        String path = getPathFromUri(uri);
 
         if (!checkPermission()) {
             requestPermission();
             return;
         }
 
-        String path = getPathFromUri(uri);
         if (path == null) {
             Toast.makeText(ConfirmUpload.this, "la photo n'existe pas", Toast.LENGTH_SHORT).show();
             return;
@@ -88,9 +104,11 @@ public class ConfirmUpload extends AppCompatActivity {
         File file = new File(path);
         RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), file);
         MultipartBody.Part part = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
+        RequestBody postdescription = RequestBody.create(MediaType.parse("text/plain"),descriptin);
+        RequestBody dateCreate = RequestBody.create(MediaType.parse("text/plain"),dateString);
 
-        ManageProfileService manageProfileService = RetrofitClient.getRetrofitInsantce().create(ManageProfileService.class);
-        Call<ResponseBody> call = manageProfileService.changeProfilePicture(part, id, "photoDeCouverture");
+        PostService postService = RetrofitClient.getRetrofitInsantce().create(PostService.class);
+        Call<ResponseBody> call = postService.savePost( part,postdescription,dateCreate, id, picture);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

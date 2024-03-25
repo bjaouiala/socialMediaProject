@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:layout_margin="20dp"
 
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="386dp"
+        >
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/couverturePicture"
+            android:layout_width="369dp"
+            android:layout_height="208dp"
+            android:layout_marginTop="4dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profilePicture"
+            android:layout_width="133dp"
+            android:layout_height="139dp"
+            android:layout_marginTop="72dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.031"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/couverturePicture"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:strokeColor="@color/black"
+
+            app:strokeWidth="3dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/NameLastname"
+            android:layout_width="162dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="20dp"
+            android:text="TextView"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.138"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            app:layout_constraintEnd_toEndOf="@+id/profilePicture"
+            app:layout_constraintHorizontal_bias="0.821"
+            app:layout_constraintStart_toStartOf="@+id/profilePicture"
+            app:layout_constraintTop_toTopOf="@+id/profilePicture"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/black"
+
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageView4"
+            android:layout_width="40dp"
+            android:layout_height="39dp"
+
+            android:layout_marginTop="168dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:srcCompat="@android:drawable/ic_menu_camera"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

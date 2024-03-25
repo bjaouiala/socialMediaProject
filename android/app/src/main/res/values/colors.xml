@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="PastelGreen">#D5DDCF</color>
+    <color name="Turquoise">#40E0D0</color>
+    <color name="red">#FF0000</color>
+    <color name="blue">#a2c4c9</color>
+    <color name="tranparent">#00FFFFFF</color>
+    <color name="blackTranparent">#80000000</color>
 </resources>

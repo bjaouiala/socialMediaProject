@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerifyCompte">
+    tools:context=".Activity.Register.VerifyCompte"
+    android:background="@drawable/home">
 
     <include
         layout="@layout/tool_bar"
@@ -30,7 +31,7 @@
         android:layout_width="202dp"
         android:layout_height="32dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="156dp"
+        android:layout_marginEnd="176dp"
         android:background="@drawable/button"
         android:text="Envoyer"
         app:layout_constraintEnd_toEndOf="parent"

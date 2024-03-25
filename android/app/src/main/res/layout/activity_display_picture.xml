@@ -6,4 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".displayPicture">
 
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="407dp"
+        android:layout_height="635dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="410dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image">
+
+        <TextView
+            android:id="@+id/jai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/com"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="404dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/jaimB"
+            android:layout_width="118dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/tranparent"
+            android:text="J'aime" />
+
+        <Button
+            android:id="@+id/comB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/tranparent"
+            android:text="Commentaire" />
+
+        <Button
+            android:id="@+id/partage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/tranparent"
+            android:text="partager" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

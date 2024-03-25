@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,7 +21,59 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".aaaa"
+            android:exported="false" />
+        <activity
+            android:name=".Test"
+            android:exported="false"
+            android:label="@string/title_activity_test"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
+            android:name=".displayPicture"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ManageProfile.ImageSelectionListnner"
+            android:exported="false"
+            android:label="@string/title_activity_image_selection_listnner"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
+            android:name=".Activity.ManageProfile.ConfirmUpload"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ManageProfile.Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ResetPassword.SetPassword"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ResetPassword.Confirmation_Code"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ResetPassword.SendCodeWithEmail"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Register.VerifyCompte"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Register.ConfirmRegister"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Register.GenreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Register.TeleDateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Register.PasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Register.EmailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.Register.NomPrenomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

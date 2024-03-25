@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/PastelGreen"
-    tools:context=".GenreActivity">
+    android:background="@drawable/home"
+    tools:context=".Activity.Register.GenreActivity">
 
     <include
         layout="@layout/tool_bar"

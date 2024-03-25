@@ -4,15 +4,39 @@
  */
 exports.up = function(knex) {
   return knex.schema.createTable('users',function(table){
-    table.increments();
+    table.increments('id').primary();
     table.string('Firstname');
     table.string('Lastname');
     table.string('password');
-    table.string('email');
+    table.string('email').unique().notNullable();
+    table.string('emailRecuperation');
     table.string('phoneNumber');
     table.date('dateBirth');
-    table.string('gender')
-    table.string('role')
+    table.string('gender');
+    table.string('role');
+    table.string('CodeConfirmation');
+    table.boolean('isVerified');
+    table.string('photoDeCouverture');
+    table.string('photoDeProfile');
+
+  })
+  .createTable('posts',function(table){
+    table.increments('id').primary();
+    table.integer("user_id").unsigned().notNullable();
+    table.foreign('user_id').references('id').inTable('users').onDelete('CASCADE');
+    table.string('description');
+    table.date('dateCreate');
+    table.string("postFile");
+     table.boolean('isProfile');
+    table.boolean('isCover')
+   
+  })
+  .createTable('Friends',function(table){
+    table.increments('id');
+    table.integer('followerId').unsigned().notNullable();
+    table.foreign('followerId').references('id').inTable('users').onDelete('CASCADE');
+    table.integer('followedId').unsigned().notNullable();
+    table.foreign('followedId').references('id').inTable('users').onDelete('CASCADE');
 
   })
 };
@@ -22,6 +46,9 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  return knex.schema.dropTable('users');
+  return knex.schema.dropTable('Friends')
+  
+  
+  
   
 };

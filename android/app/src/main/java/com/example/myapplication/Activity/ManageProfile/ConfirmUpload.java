@@ -20,6 +20,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.myapplication.Activity.ManageHome.HomeActivity;
+import com.example.myapplication.Helper;
 import com.example.myapplication.R;
 import com.example.myapplication.config.RetrofitClient;
 import com.example.myapplication.services.PostService;
@@ -44,6 +46,9 @@ public class ConfirmUpload extends AppCompatActivity {
     private ImageView imageView;
     private Button button;
     private EditText editText;
+    private String picture;
+    private long id;
+    private  Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,19 +80,13 @@ public class ConfirmUpload extends AppCompatActivity {
         }
     }
 
-    public String createNewDate(){
-        Calendar calendar = Calendar.getInstance();
-        Date currentDate = calendar.getTime();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        return dateFormat.format(currentDate);
-    }
 
     public void upploadImage() {
         String descriptin = editText.getText().toString();
-        String dateString = createNewDate();
+        String dateString = Helper.createNewDate();
         Intent i = getIntent();
-        long id = i.getLongExtra("id", 0);
-        String picture = i.getStringExtra("picture");
+        id = i.getLongExtra("id", 0);
+        picture = i.getStringExtra("picture");
         Uri uri = i.getData();
         String path = getPathFromUri(uri);
 
@@ -102,7 +101,7 @@ public class ConfirmUpload extends AppCompatActivity {
         }
 
         File file = new File(path);
-        RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), file);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
         MultipartBody.Part part = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
         RequestBody postdescription = RequestBody.create(MediaType.parse("text/plain"),descriptin);
         RequestBody dateCreate = RequestBody.create(MediaType.parse("text/plain"),dateString);
@@ -113,7 +112,17 @@ public class ConfirmUpload extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    Toast.makeText(ConfirmUpload.this, "Picture uploaded successfully", Toast.LENGTH_SHORT).show();
+                    if (picture.equals("photoDeProfile") || picture.equals("photoDeCouverture")){
+                        intent = new Intent(ConfirmUpload.this, ProfileActivity.class);
+                        intent.putExtra("id",id);
+                        finish();
+                        startActivity(intent);
+                    }else {
+                        intent = new Intent(ConfirmUpload.this, HomeActivity.class);
+                        intent.putExtra("id",id);
+                        finish();
+                        startActivity(intent);
+                    }
                 } else {
                     Toast.makeText(ConfirmUpload.this, "Picture didn't uploaded", Toast.LENGTH_SHORT).show();
                 }

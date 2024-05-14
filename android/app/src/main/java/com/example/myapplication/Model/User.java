@@ -6,6 +6,67 @@ import java.util.Date;
 public class User implements Serializable {
     private long id;
 
+
+        private String Firstname;
+        private String Lastname;
+    private String password;
+    private String email;
+    private String emailRecuperation;
+    private String dateBirth;
+    private String gendre;
+    private String phoneNumber;
+    private String CodeConfirmation;
+
+    private String photoDeProfile;
+
+    private String photoDeCouverture;
+    private long profileId ;
+    private long coverId;
+    private String state;
+    private long followerId;
+    private long followedId;
+
+    public long getFollowerId() {
+
+        return followerId;
+    }
+
+    public void setFollowerId(long followerId) {
+        this.followerId = followerId;
+    }
+
+    public long getFollowedId() {
+        return followedId;
+    }
+
+    public void setFollowedId(long followedId) {
+        this.followedId = followedId;
+    }
+
+
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+    public long getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(long profileId) {
+        this.profileId = profileId;
+    }
+
+    public long getCoverId() {
+        return coverId;
+    }
+
+    public void setCoverId(long coverId) {
+        this.coverId = coverId;
+    }
     public long getId() {
         return id;
     }
@@ -14,17 +75,6 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    private String Firstname;
-    private String Lastname;
-    private String password;
-    private String email;
-    private String emailRecuperation;
-    private String dateBirth;
-    private String gendre;
-    private String phoneNumber;
-    private String CodeConfirmation;
-    private String photoDeProfile;
-    private String photoDeCouverture;
 
     public String getPhotoDeProfile() {
         return photoDeProfile;

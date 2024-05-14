@@ -2,18 +2,19 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="500dp"
-    android:layout_margin="20dp">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pictureIcone"
-            android:layout_width="70dp"
-            android:layout_height="75dp"
+            android:layout_width="54dp"
+            android:layout_height="57dp"
             android:layout_marginTop="4dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
@@ -25,103 +26,14 @@
             app:strokeWidth="0.5dp"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/post"
-            android:layout_width="369dp"
-            android:layout_height="248dp"
-            android:layout_marginTop="56dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pictureIcone"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="368dp"
-            android:layout_height="46dp"
-            android:layout_marginTop="68dp"
-            android:ems="10"
-            android:gravity="start|top"
-            app:layout_constraintBottom_toTopOf="@+id/post"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <LinearLayout
-            android:layout_width="369dp"
-            android:layout_height="109dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/post">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/jaimeNum"
-                    android:layout_width="100dp"
-                    android:layout_height="31dp"
-                    android:layout_marginRight="50dp"
-                    android:layout_weight="1"
-                    android:paddingTop="10dp"
-                    android:text="TextView" />
-
-                <TextView
-                    android:id="@+id/commentaireNum"
-                    android:layout_width="100dp"
-                    android:layout_height="31dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_weight="1"
-                    android:paddingTop="10dp"
-                    android:text="TextView" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/jaime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/tranparent"
-                    android:text="j'aime" />
-
-                <Button
-                    android:id="@+id/commentaire"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/tranparent"
-                    android:text="commentaire" />
-
-                <Button
-                    android:id="@+id/partager"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/tranparent"
-                    android:text="partager" />
-            </LinearLayout>
-        </LinearLayout>
-
         <TextView
             android:id="@+id/namep"
-            android:layout_width="150dp"
-            android:layout_height="28dp"
+            android:layout_width="236dp"
+            android:layout_height="30dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
-            android:textSize="25dp"
+            android:text="ala eddine bejaoui"
+            android:textSize="18dp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/pictureIcone"
             app:layout_constraintTop_toTopOf="parent" />
@@ -130,12 +42,139 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="188dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="208dp"
             android:text="TextView"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/namep" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date">
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="400dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:text="TextView"
+                android:paddingTop="4dp"
+                android:textSize="18dp"
+                android:lines="4"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+            <ImageView
+                android:id="@+id/post"
+                android:layout_width="500dp"
+                android:layout_height="230dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+            <Button
+                android:id="@+id/jaime"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="J'aime"
+                android:textSize="12dp"
+                android:drawableLeft="@drawable/jaime"
+                android:background="@color/tranparent"
+                android:paddingRight="30dp"
+                android:paddingLeft="12dp"
+                />
+
+            <Button
+                android:id="@+id/commentaire"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="11dp"
+                android:text="commentaire"
+                android:paddingRight="10dp"
+                android:background="@color/tranparent"
+                android:drawableLeft="@drawable/commentaire"
+                android:paddingLeft="10dp"/>
+
+            <Button
+                android:id="@+id/partager"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12dp"
+                android:text="partager"
+                android:paddingRight="15dp"
+                android:background="@color/tranparent"
+                android:drawableLeft="@drawable/partager"
+                android:paddingLeft="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+            <TextView
+                android:id="@+id/jaimeNum"
+                android:layout_width="200dp"
+                android:paddingLeft="20dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/commentaireNum"
+                android:paddingLeft="100dp"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/menu"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/menu"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:strokeWidth="0.5dp"
+/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

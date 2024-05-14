@@ -13,7 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.myapplication.Activity.ManageProfile.Profile;
+import com.example.myapplication.Activity.ManageHome.HomeActivity;
+import com.example.myapplication.Activity.ManageProfile.ProfileActivity;
 import com.example.myapplication.Activity.Register.NomPrenomActivity;
 import com.example.myapplication.Activity.ResetPassword.SendCodeWithEmail;
 import com.example.myapplication.Model.AuthModel;
@@ -70,10 +71,10 @@ public class LoginActivity extends AppCompatActivity {
                     AuthModel authModel =response.body();
                     long id = authModel.getUser().getId();
                     String JWT = authModel.getToken();
-                    SharedPreferences.Editor editor = getSharedPreferences("shared",MODE_PRIVATE).edit();
-                    editor.putString("token",JWT);
-                    editor.apply();
-                    Intent i = new Intent(LoginActivity.this, Profile.class);
+                        SharedPreferences.Editor editor = getSharedPreferences("shared",MODE_PRIVATE).edit();
+                        editor.putString("token",JWT);
+                        editor.apply();
+                    Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                     i.putExtra("id",id);
                     startActivity(i);
 

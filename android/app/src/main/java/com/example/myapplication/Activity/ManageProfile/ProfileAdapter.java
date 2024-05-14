@@ -5,6 +5,7 @@ import static androidx.core.app.ActivityCompat.startActivityForResult;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,6 +39,11 @@ public class ProfileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         this.user = user;
         this.posts = posts;
 
+    }
+    public void removePost(int postion){
+        Log.d("removedpos",""+postion);
+        posts.remove(postion-1);
+        notifyItemRemoved(postion);
     }
 
 
@@ -79,7 +85,8 @@ public class ProfileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ((ProfileViewHolder) holder).bind(user,listnner);
         }else if(holder instanceof PostViewHolder){
             PostResponse post = posts.get(position-1);
-            ((PostViewHolder)holder).bind(post);
+            ((PostViewHolder)holder).bind(post,position);
+            Log.d("position",position-1+" ");
         }
 
     }
@@ -88,7 +95,16 @@ public class ProfileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public int getItemCount() {
-        return (user != null) ? posts.size() + 1 : posts.size();
+        if(user != null){
+            if (posts.size() == 0){
+                return 1;
+            }else {
+                return posts.size()+1;
+            }
+        }else {
+            throw new RuntimeException("user not found");
+        }
+
     }
 
 }

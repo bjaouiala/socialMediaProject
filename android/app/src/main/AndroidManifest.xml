@@ -21,13 +21,33 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".aaaa"
+            android:name=".Activity.ManageAccount.RegistredPostActivity"
             android:exported="false" />
         <activity
-            android:name=".Test"
-            android:exported="false"
-            android:label="@string/title_activity_test"
-            android:theme="@style/Theme.MyApplication" />
+            android:name=".Activity.ManageAccount.FriendsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ManageAccount.settingAccountActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.ManageHome.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.ManageHome.TextPubActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ManageFriends.FriendProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ManageHome.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UpdatePost"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ManageAccount.BlockedFriendsActivity"
+            android:exported="false" />
         <activity
             android:name=".displayPicture"
             android:exported="false" />
@@ -40,8 +60,12 @@
             android:name=".Activity.ManageProfile.ConfirmUpload"
             android:exported="false" />
         <activity
-            android:name=".Activity.ManageProfile.Profile"
-            android:exported="false" />
+            android:name=".Activity.ManageProfile.ProfileActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.ManageHome.HomeActivity" />
+        </activity>
         <activity
             android:name=".Activity.ResetPassword.SetPassword"
             android:exported="false" />

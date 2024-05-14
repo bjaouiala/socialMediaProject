@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars"
-        android:scaleType="centerCrop"/>
+        />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -56,26 +56,38 @@
 
         <Button
             android:id="@+id/jaimB"
-            android:layout_width="118dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="J'aime"
+            android:textSize="12dp"
+            android:drawableLeft="@drawable/jaime"
             android:background="@color/tranparent"
-            android:text="J'aime" />
+            android:paddingRight="30dp"
+            android:paddingLeft="25dp" />
 
         <Button
             android:id="@+id/comB"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="11dp"
+            android:text="commentaire"
+            android:paddingRight="10dp"
             android:background="@color/tranparent"
-            android:text="Commentaire" />
+            android:drawableLeft="@drawable/commentaire"
+            android:paddingLeft="10dp" />
 
         <Button
             android:id="@+id/partage"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="12dp"
+            android:text="partager"
+            android:paddingRight="15dp"
             android:background="@color/tranparent"
-            android:text="partager" />
+            android:drawableLeft="@drawable/partager"
+            android:paddingLeft="10dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

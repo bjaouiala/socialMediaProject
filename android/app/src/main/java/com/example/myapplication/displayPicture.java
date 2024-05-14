@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.widget.ImageView;
 
 import com.example.myapplication.Model.PostResponse;
@@ -16,10 +18,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class displayPicture extends AppCompatActivity {
+public class    displayPicture extends AppCompatActivity {
     private Intent intent;
     private ImageView postImage;
     private Long postId;
+    private GestureDetector gestureDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,23 @@ public class displayPicture extends AppCompatActivity {
         intent = getIntent();
         postId = intent.getLongExtra("postId",0);
         getPostById();
+
+        gestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onDown(MotionEvent e) {
+                return true;
+            }
+
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                // Si le geste de glissement est vers le bas et assez rapide
+                if (e1.getY() < e2.getY() && velocityY > 2000) {
+                    finish(); // Fermer l'activité
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
 

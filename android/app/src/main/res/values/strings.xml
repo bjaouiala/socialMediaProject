@@ -9,6 +9,16 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="Annuler">Annuler</string>
+    <string name="Rependre">Repondre</string>
+    <string name="Ajouter">Ajouter</string>
+    <string name="Message">Message</string>
+    <string name="AccepterInvtation">Accepter l\'invitation</string>
+    <string name="removeInvitation">"supprimer l\'invitation"</string>
+    <string name="Amie">Amie</string>
+    <string name="block">Bloquer cette Amie</string>
+    <string name="retirer">Retirer de la liste d\'amie</string>
+    <string name="blocked">BLOCKED</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
@@ -49,4 +59,7 @@
     <string name="title_activity_user_profile">UserProfile</string>
     <string name="title_activity_image_selection_listnner">ImageSelectionListnner</string>
     <string name="title_activity_test">Test</string>
+    <string name="title_activity_update_post">Update_post</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

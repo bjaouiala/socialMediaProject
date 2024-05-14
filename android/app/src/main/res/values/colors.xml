@@ -8,4 +8,7 @@
     <color name="blue">#a2c4c9</color>
     <color name="tranparent">#00FFFFFF</color>
     <color name="blackTranparent">#80000000</color>
+    <color name="gray">#eeeeee</color>
+    <color name="bluee">#0000FF</color>
+    <color name="blanccasse">#FEFEE2</color>
 </resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/supprimer"
+                android:layout_width="330dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="supprimer la pubilication"
+                android:drawableLeft="@drawable/delete"
+                android:paddingTop="8dp"
+                android:paddingLeft="15dp"
+             />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="43dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+            tools:layout_editor_absoluteX="1dp"
+            >
+
+            <TextView
+                android:id="@+id/modifier"
+                android:layout_width="330dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Modifier la publication"
+                android:paddingTop="8dp"
+                android:drawableLeft="@drawable/modifier"
+                android:paddingLeft="15dp"
+              />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="85dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+            >
+
+            <TextView
+                android:id="@+id/enregistrer"
+                android:layout_width="330dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Enregistrer la publication"
+                android:drawableLeft="@drawable/enregistrer"
+                android:paddingTop="8dp"
+                android:paddingLeft="15dp"
+           />
+        </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -2,7 +2,66 @@ package com.example.myapplication.Model;
 
 public class PostResponse {
     private String description;
+    private long post_id;
+    private long userId;
+    private String dateCreate;
+    private long state;
+    private long likeCount;
+    private long likedUserId;
+    private long likedPostId;
 
+    public long getLikedUserId() {
+        return likedUserId;
+    }
+
+
+    public void setLikedUserId(long likedUserId) {
+        this.likedUserId = likedUserId;
+    }
+
+    public long getLikedPostId() {
+        return likedPostId;
+    }
+
+    public void setLikedPostId(long likedPostId) {
+        this.likedPostId = likedPostId;
+    }
+
+    public long getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(long likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    private String postFile;
+    private String Firstname;
+    private String Lastname;
+    private String photoDeProfile;
+    private long followedId;
+
+    private long followerId;
+
+    public long getFollowerId() {
+        return followerId;
+    }
+
+    public void setFollowerId(long followerId) {
+        this.followerId = followerId;
+    }
+
+    public void setPost_id(long post_id) {
+        this.post_id = post_id;
+    }
+
+    public long getFollowedId() {
+        return followedId;
+    }
+
+    public void setFollowedId(long followedId) {
+        this.followedId = followedId;
+    }
     public String getDescription() {
         return description;
     }
@@ -66,12 +125,14 @@ public class PostResponse {
     public void setPhotoDeProfile(String photoDeProfile) {
         this.photoDeProfile = photoDeProfile;
     }
+    public long getState() {
+        return state;
+    }
 
-    private long post_id;
-            private long userId;
-            private String dateCreate;
-            private String postFile;
-            private String Firstname;
-            private String Lastname;
-            private String photoDeProfile;
+    public void setState(long state) {
+        this.state = state;
+    }
+
+
+
 }

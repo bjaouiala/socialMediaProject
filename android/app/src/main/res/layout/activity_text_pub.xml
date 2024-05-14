@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.ManageHome.TextPubActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar4"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="3dp"
+
+        >
+    <Button
+        android:id="@+id/pubButton"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="30dp"
+        android:text="publier"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:background="@drawable/pubbutton"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/pubText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="QUOI de neuf ?"
+        android:textSize="30dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="40dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

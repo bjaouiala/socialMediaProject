@@ -9,6 +9,39 @@ const fs = require('fs')
 
 
 
+router.get("/search/:userId",async (req,res)=>{
+  let ch = req.query.friend;
+  const userId= req.params.userId;
+  try{
+    if(ch){
+      const users= await query.searchFriend(ch,userId)
+      console.log(users)
+       if(users.length > 0 && users != null){
+         for(const user of users){
+           const photoPath = user.photoDeProfile
+           if(photoPath){
+             const photoData = fs.readFileSync(photoPath,{encoding:'base64'})
+             user.photoDeProfile = photoData
+           }
+           
+         }
+         res.json(users)
+
+    }else res.json([])
+  
+    }else{
+      res.json([])
+    }
+
+    
+  }catch(error){
+    console.log(error)
+    res.status(500).json(error)
+  }
+})
+
+
+
 
 
 router.post('/', async (req, res, next) => {
@@ -37,6 +70,7 @@ router.put("/",async(req,res)=>{
   let email = req.body.email;
   let emailRecuperation = req.body.emailRecuperation;
   let user = await query.findUserByEmail(email);
+  console.log(user)
   if(user.length !=0 ){
     user.CodeConfirmation = generateCode();
     await query.updateUserparEmail(email,user.CodeConfirmation);
@@ -44,6 +78,7 @@ router.put("/",async(req,res)=>{
     .then((success)=>{
       res.json(user[0]);
     }).catch((error)=>{
+      console.log(error)
       res.json(error);
     })
 
@@ -59,7 +94,7 @@ router.put("/changePassword",(req,res)=>{
 
   query.updatePassword(code,password)
   .then((result)=>{
-    res.status(200).json("password update succefully")
+    res.status(200).json("password updated succefully")
   }).catch((error)=>{
     console.log(error)
     res.status(500).json("failed to update password");
@@ -110,22 +145,73 @@ router.get("/:id",async (req,res)=>{
   console.log(user)
   if(user){
     const profilePath = user[0].photoDeProfile;
+    console.log(profilePath)
     const couverturePath = user[0].photoDeCouverture;
-    const profileData = fs.readFileSync(profilePath,{encoding:"base64"});
-    const couvertureData= fs.readFileSync(couverturePath,{encoding:"base64"});
-
+    if (profilePath){
+      const profileData = fs.readFileSync(profilePath,{encoding:"base64"});
     user[0].photoDeProfile = profileData;
+    }
+    if(couverturePath){
+      const couvertureData= fs.readFileSync(couverturePath,{encoding:"base64"});
     user[0].photoDeCouverture= couvertureData
+    }
+
+    
     res.json(user[0])
   }else{
     res.status(404).json("user not found")
   }
  }catch(error){
+  console.log(error)
  
   res.status(500).json(error)
  }
   
+});
+router.put('/account/:id',async(req,res)=>{
+  try{
+    const id = req.params.id;
+      const existuser = await query.findUserByid(id);
+      const user = req.body;
+      if(existuser){
+        if(user.email){
+          console.log(user.email);
+            existuser.email= user.email;
+        }else if(user.password){
+          console.log(user.password)
+            existuser.password = user.password;
+        }else if(user.dateBirth){
+            existuser.dateBirth = user.dateBirth;
+        }else if(user.Firstname || user.Lastname){
+          existuser.Firstname = user.Firstname;
+          if(user.Lastname){
+            existuser.Lastname = user.Lastname;
+          }else{
+            existuser.Lastname=""
+          }
+
+        }
+        await query.updateuser(existuser,id)
+        res.json("user upated succefully")
+
+      }else{
+        res.status(404).json("no user found with the given id")
+      }
+
+
+ 
+  }catch(error){
+      console.log(error)
+      res.status(500).json("error")
+  }
+
+
+
 })
+
+
+
+
 
 
 

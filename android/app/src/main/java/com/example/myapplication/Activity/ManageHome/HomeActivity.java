@@ -39,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.navigation_bar);
         Intent intent = getIntent();
         userid = intent.getLongExtra("id",0);
+
         bundle = new Bundle();
         bundle.putLong("id",userid);
 
